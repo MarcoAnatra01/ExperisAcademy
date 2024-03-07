@@ -47,7 +47,7 @@ public class PasticceriaAutomatica {
                 if (numeroBase >= 0 && numeroBase < basi.length) {  
                     String sceltaBase = basi[numeroBase];
                 }else{
-                    System.out.println("ingrediente non presente");
+                    System.out.println("\ningrediente non presente");
                 }
 
                 //----------------------------------------------------------------------------------------------------
@@ -65,7 +65,7 @@ public class PasticceriaAutomatica {
                 if (numeroRipieno >= 0 && numeroRipieno < ripieni.length) {  
                     String sceltaRipieno = ripieni[numeroRipieno];
                 }else{
-                    System.out.println("ingrediente non presente");
+                    System.out.println("\ningrediente non presente");
                 }
 
                 //----------------------------------------------------------------------------------------------------
@@ -77,14 +77,34 @@ public class PasticceriaAutomatica {
                     System.out.println(frutta[i] + " - " + i);
                 }
 
-                System.out.println("\nScegli la frutta del dolce con il numero corrispondente");
+                System.out.println("\nScegli la frutta con il numero corrispondente");
                 int numeroFrutta = scanNum.nextInt();
 
                 if (numeroFrutta >= 0 && numeroFrutta < frutta.length) {  
-                    String sceltaRipieno = ripieni[numeroRipieno];
+                    String sceltaFrutta = frutta[numeroFrutta];
                 }else{
-                    System.out.println("ingrediente non presente");
+                    System.out.println("\ningrediente non presente");
                 }
+
+                //----------------------------------------------------------------------------------------------------
+
+                // SCELTA DECORAZIONE
+
+                // stampo gli elementi dell'array decorazioni
+                for(int i = 0; i < decorazioni.length; i++){
+                    System.out.println(decorazioni[i] + " - " + i);
+                }
+
+                System.out.println("\nScegli la decorazione con il numero corrispondente");
+                int numeroDecorazione = scanNum.nextInt();
+
+                if (numeroDecorazione >= 0 && numeroDecorazione < decorazioni.length) {  
+                    String sceltaDecorazione = decorazioni[numeroDecorazione];
+                }else{
+                    System.out.println("\ningrediente non presente");
+                }
+                //----------------------------------------------------------------------------------------------------
+
 
             }else if (tipoComposizione.toLowerCase().equals("casuale")) {   // COMPOSIZIONE RANDOM
                 
