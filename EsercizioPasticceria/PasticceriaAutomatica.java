@@ -122,7 +122,7 @@ public class PasticceriaAutomatica {
 
                 // stampo l'ArrayList con la scelta ingredienti
 
-                System.out.println("Ecco gli ingredienti da te scelti per la composizione del dolce:");
+                System.out.println("\nEcco gli ingredienti da te scelti per la composizione del dolce:");
                 System.out.println(ingredientiUtente);
 
             }else if (tipoComposizione.toLowerCase().equals("casuale")) {   // COMPOSIZIONE RANDOM
@@ -137,14 +137,14 @@ public class PasticceriaAutomatica {
                 ingredientiUtente.add(frutta[fruttaRandom]);
                 ingredientiUtente.add(decorazioni[decorazioneRandom]);
 
-                System.out.println("Ecco gli ingredienti random per il dolce:");
+                System.out.println("\nEcco gli ingredienti random per il dolce:\n");
                 System.out.println(ingredientiUtente);
 
             }else{
                 System.out.println("\ntipo composizione non presente");
             }
         }else{
-            System.out.println("Non hai inserito nessun tipo di composizione");
+            System.out.println("\nNon hai inserito nessun tipo di composizione");
         }
     }
 }
