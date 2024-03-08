@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Random;
+
 
 public class PasticceriaAutomatica {
     
@@ -8,6 +10,9 @@ public class PasticceriaAutomatica {
         // creo gli oggetti tipo Scanner per prendere gli input utente
         Scanner scanString = new Scanner(System.in);
         Scanner scanNum = new Scanner(System.in);
+
+        // Creo oggetto Random per la generazione num casuali
+        Random random = new Random();
 
         // ArrayList con gli ingredienti scelti dall'utente 
         ArrayList<String> ingredientiUtente = new ArrayList<>();
@@ -46,9 +51,13 @@ public class PasticceriaAutomatica {
 
                 if (numeroBase >= 0 && numeroBase < basi.length) {  
                     String sceltaBase = basi[numeroBase];
+
+                    // aggiungo la scelta utente all'ArrayList degli ingredienti scelti dall'utente
+                    ingredientiUtente.add(sceltaBase);
                 }else{
                     System.out.println("\ningrediente non presente");
                 }
+
 
                 //----------------------------------------------------------------------------------------------------
                 
@@ -64,6 +73,8 @@ public class PasticceriaAutomatica {
 
                 if (numeroRipieno >= 0 && numeroRipieno < ripieni.length) {  
                     String sceltaRipieno = ripieni[numeroRipieno];
+
+                    ingredientiUtente.add(sceltaRipieno);
                 }else{
                     System.out.println("\ningrediente non presente");
                 }
@@ -82,6 +93,8 @@ public class PasticceriaAutomatica {
 
                 if (numeroFrutta >= 0 && numeroFrutta < frutta.length) {  
                     String sceltaFrutta = frutta[numeroFrutta];
+
+                    ingredientiUtente.add(sceltaFrutta);
                 }else{
                     System.out.println("\ningrediente non presente");
                 }
@@ -100,14 +113,32 @@ public class PasticceriaAutomatica {
 
                 if (numeroDecorazione >= 0 && numeroDecorazione < decorazioni.length) {  
                     String sceltaDecorazione = decorazioni[numeroDecorazione];
+
+                    ingredientiUtente.add(sceltaDecorazione);
                 }else{
                     System.out.println("\ningrediente non presente");
                 }
                 //----------------------------------------------------------------------------------------------------
 
+                // stampo l'ArrayList con la scelta ingredienti
+
+                System.out.println("Ecco gli ingredienti da te scelti per la composizione del dolce:");
+                System.out.println(ingredientiUtente);
 
             }else if (tipoComposizione.toLowerCase().equals("casuale")) {   // COMPOSIZIONE RANDOM
                 
+                int baseRandom = random.nextInt(basi.length); 
+                int ripienoRandom = random.nextInt(ripieni.length); 
+                int fruttaRandom = random.nextInt(frutta.length); 
+                int decorazioneRandom = random.nextInt(decorazioni.length); 
+
+                ingredientiUtente.add(basi[baseRandom]);
+                ingredientiUtente.add(ripieni[ripienoRandom]);
+                ingredientiUtente.add(frutta[fruttaRandom]);
+                ingredientiUtente.add(decorazioni[decorazioneRandom]);
+
+                System.out.println("Ecco gli ingredienti random per il dolce:");
+                System.out.println(ingredientiUtente);
 
             }else{
                 System.out.println("\ntipo composizione non presente");
