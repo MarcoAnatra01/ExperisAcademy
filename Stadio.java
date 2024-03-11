@@ -43,14 +43,14 @@ public class Stadio {
             System.out.println("\nhai inserito 0 weekend");
         }
 
-/*
+        // riepilogo
         for (int i = 0; i < spettatoriSabato.size(); i++) {
-            System.out.println("Sabato " + (i+1) + ": Spettatori = " + spettatoriSabato.get(i) + ", Incasso = $" + (saturdaySpectators.get(i) * 20));
+            System.out.println("Sabato " + (i+1) + ": Spettatori = " + spettatoriSabato.get(i) + ", Incasso = $" + (spettatoriSabato.get(i) * prezzoSabato));
         }
         
-        for (int i = 0; i < sundaySpectators.size(); i++) {
-            System.out.println("Domenica " + (i+1) + ": Spettatori = " + sundaySpectators.get(i) + ", Incasso = $" + (sundaySpectators.get(i) * 15));
+        for (int i = 0; i < spettatoriDomenica.size(); i++) {
+            System.out.println("Domenica " + (i+1) + ": Spettatori = " + spettatoriDomenica.get(i) + ", Incasso = $" + (spettatoriDomenica.get(i) * prezzoDomenica));
         }
-        */
+
     }
 }
