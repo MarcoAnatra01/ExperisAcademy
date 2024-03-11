@@ -3,26 +3,38 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Stadio {
-    private int incassiTotali = 0;
-    private Scanner scanNum = new Scanner(System.in);
-    private Random random = new Random();
+    
+    public static void main(String[] args) {
+        int spectatorID = 0;
+        int incassiTotali = 0;
+        int prezzoSabato = 20;
+        int prezzoDomenica = 15;
+        
+        Scanner scanNum = new Scanner(System.in);
+        Random random = new Random();
 
-    public void simulaWeekend() {
+        
         System.out.println("Inserisci il numero di weekend:\n");
         int weekend = scanNum.nextInt();
-
+        
         if (weekend > 0) {
-            int spettatoriSabato = random.nextInt(30000);
-            int spettatoriDomenica = random.nextInt(30000);
+            int i = 0;
+            while (i < weekend) {
+                // simulazione vendita biglietti sabato
+                int spettatoriSabato = random.nextInt(30000);
+                int incassoSabato = spettatoriSabato * prezzoSabato;
+                spectatorID += spettatoriSabato;
     
-            int incassiSabato = spettatoriSabato * 20;
-            int incassiDomenica = spettatoriDomenica * 15;
-
-            incassiTotali += (incassiSabato + incassiDomenica);
+                // simulazione vendita biglietti domenica
+                int spettatoriDomenica = random.nextInt(30000);
+                int incassoDomenica = spettatoriDomenica * prezzoDomenica;
+                spectatorID += spettatoriDomenica;
+                
+                incassiTotali += (incassoSabato + incassoDomenica);
+                i++;
+            }
+        }else{
+            System.out.println("\nhai inserito 0 weekend");
         }
-    }
-
-    public int getTotalIncome() {
-        return incassiTotali;
     }
 }
