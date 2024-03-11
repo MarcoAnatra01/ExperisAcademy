@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Prova {
     public static void main(String[] args) {
+        
         Scanner scan = new Scanner(System.in);
 
         System.out.println("inserisci l'ammontare vendite annuali:");
@@ -30,5 +31,9 @@ public class Prova {
         }
 
         System.out.println("bonus = " + bonus);
+        
+
+
+        
     }
 }
