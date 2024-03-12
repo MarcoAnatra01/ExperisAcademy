@@ -22,10 +22,13 @@ public class PiattoSpeciale {
         return prezzoTotale;
     }
 
+    public void calcolaPrezzoTotale(double prezzoIngredientePubblico) {
+        this.prezzoTotale += prezzoIngredientePubblico;
+    }
+
     public String getPanino() {
         return tipoPane;
     }
-
 
     public void setIngredientePrivato(String ingrediente, double prezzo) {
         this.ingredientePrivato = ingrediente;
