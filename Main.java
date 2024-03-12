@@ -1,6 +1,6 @@
 public class Main {
-    String nome;
-    int eta; 
+    private String nome;
+    private int eta; 
 
     // esempio con Costruttore()
 
@@ -8,9 +8,15 @@ public class Main {
       this.nome = nome;
       this.eta = eta;  
     }
+
+    public Main(){}
+
+    public void setName(String name){
+      nome = name;
+    }
   
     public static void main(String[] args) {
-      Main persona = new Main("pippo", 34);
-      System.out.println(persona.nome); 
+      Main persona = new Main();
+      persona.setName("pippo");
    }
 }

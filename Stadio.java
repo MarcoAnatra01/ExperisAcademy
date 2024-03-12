@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.lang.Math;
 
 public class Stadio {
-    static int spectatorID = 0;
-    static int incassoTotale = 0;
-    static int prezzoSabato = 20;
-    static int prezzoDomenica = 15;
+    private static int spectatorID = 0;
+    private static int incassoTotale = 0;
+    private static int prezzoSabato = 20;
+    private static int prezzoDomenica = 15;
     
     static Scanner scanNum = new Scanner(System.in);
     static Random random = new Random();
