@@ -1,56 +1,104 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class Stadio {
+    static int spectatorID = 0;
+    static int incassoTotale = 0;
+    static int prezzoSabato = 20;
+    static int prezzoDomenica = 15;
+    
+    static Scanner scanNum = new Scanner(System.in);
+    static Random random = new Random();
+
+    public void menu(){
+        System.out.println("\nQuale info vuoi avere ?\n1 - affluenza minima\n2 - affluenza massima\n3 - incasso minimo\n4 - incasso massimo\n5 - incasso totale dei weekend\n6 - esci");
+        System.out.println("\nDigita il numero corrispondente:");
+    }
     
     public static void main(String[] args) {
-        int spectatorID = 0;
-        int incassoTotale = 0;
-        int prezzoSabato = 20;
-        int prezzoDomenica = 15;
-        
-        Scanner scanNum = new Scanner(System.in);
-        Random random = new Random();
+        // creo un oggetto tipo Stadio
+        Stadio stadio = new Stadio();
+
+        // lista con i numeri di spettatori dei vari sabati  
         ArrayList<Integer> spettatoriSabato = new ArrayList<>();
+
+        // lista con i numeri di spettatori delle domeniche
         ArrayList<Integer> spettatoriDomenica = new ArrayList<>();
+
+        // liste con gli incassi 
+        ArrayList<Integer> incassiSabato = new ArrayList<>();
+        ArrayList<Integer> incassiDomenica = new ArrayList<>();
         
         System.out.println("Inserisci il numero di weekend:\n");
         int weekend = scanNum.nextInt();
         
         if (weekend > 0) {
-
-            // vendita biglietti sabato
+            // simulazione vendita biglietti weekend
             int i = 0;
             while (i < weekend) {
-                int spettatori = random.nextInt(30000);  // generazione casuale numero spettatori
-                spettatoriSabato.add(spettatori);
-                int incasso = spettatori * prezzoSabato;
-                incassoTotale += incasso;
+                // generazione numero casuale di spettatori sabato
+                int spettatoriS = random.nextInt(30000);  
+
+                // aggiungo il numero spettatori del singolo sabato alla lista spettaoriSabato
+                spettatoriSabato.add(spettatoriS);
+                
+                // calcolo l'incasso del singolo sabato e lo aggiungo alla lista incassiSabato 
+                int incassoS = spettatoriS * prezzoSabato;
+                incassiSabato.add(incassoS);
+
+                // generazione numero casuale di spettatori domenica
+                int spettatoriD = random.nextInt(30000);  
+
+                // aggiungo il numero spettatori della singola domenica alla lista spettatoriDomenica
+                spettatoriDomenica.add(spettatoriD);
+    
+                // calcolo l'incasso della singola domenica e lo aggiungo alla lista incassiDomenica 
+                int incassoD = spettatoriD * prezzoDomenica;
+                incassiDomenica.add(incassoD);
+
+                // incremento l'incasso totale
+                incassoTotale += (incassoS + incassoD);
                 i++;
             }
 
-            // vendita biglietti domenica
-            int j = 0;
-            while (j < weekend) {
-                int spettatori = random.nextInt(30000);  // generazione casuale numero spettatori
-                spettatoriDomenica.add(spettatori);
-                int incasso = spettatori * prezzoDomenica;
-                incassoTotale += incasso;
-                j++;
+            // riepilogo dati dei vari weekend
+            for (int j = 0; j < spettatoriSabato.size(); j++) {
+                System.out.println("Sabato " + (j+1) + ": Spettatori = " + spettatoriSabato.get(j) + ", Incasso = $" + (incassiSabato.get(j)));
+
+                System.out.println("Domenica " + (j+1) + ": Spettatori = " + spettatoriDomenica.get(j) + ", Incasso = $" + (incassiDomenica.get(j)));
             }
+
+            stadio.menu();
+
+            int sceltaUtente = scanNum.nextInt();
+
+            if (sceltaUtente >= 1 && sceltaUtente <= 6) {
+                while (sceltaUtente >= 1 && sceltaUtente <= 5) {
+
+                    switch (sceltaUtente) {
+                        case 1:
+                            // affluenza minima
+                            int affluenzaMinimaSabato = spettatoriSabato.get(0);
+
+                            for (int k = 1; i < spettatoriSabato.size(); k++) {
+                                if (spettatoriSabato.get(i) < affluenzaMinimaSabato) {
+                                    affluenzaMinimaSabato = spettatoriSabato.get(i); 
+                                }
+                            }
+
+                            System.out.println("\nAffluenza minima:");
+                            System.out.println("Sabato " + (spettatoriSabato.indexOf(affluenzaMinimaSabato) + 1) + " : " + affluenzaMinimaSabato + "spettatori");
+                            break;
+                }
+            }
+            
         }else{
             System.out.println("\nhai inserito 0 weekend");
         }
 
-        // riepilogo
-        for (int i = 0; i < spettatoriSabato.size(); i++) {
-            System.out.println("Sabato " + (i+1) + ": Spettatori = " + spettatoriSabato.get(i) + ", Incasso = $" + (spettatoriSabato.get(i) * prezzoSabato));
-        }
-        
-        for (int i = 0; i < spettatoriDomenica.size(); i++) {
-            System.out.println("Domenica " + (i+1) + ": Spettatori = " + spettatoriDomenica.get(i) + ", Incasso = $" + (spettatoriDomenica.get(i) * prezzoDomenica));
-        }
 
+        }
     }
 }
