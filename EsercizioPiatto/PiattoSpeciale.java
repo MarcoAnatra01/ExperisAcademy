@@ -1,8 +1,5 @@
 package EsercizioPiatto;
 
-import java.util.Scanner;
-import java.util.ArrayList;
-
 public class PiattoSpeciale {
 
     private static final double PREZZO_BASE = 1.0;  // Prezzo fisso base
