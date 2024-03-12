@@ -20,4 +20,22 @@ public class PiattoSpeciale {
         this.prezzoFarcitura = prezzoFarcitura;
         this.prezzoTotale = PREZZO_BASE;
     }
+
+    public double getPrezzoTotale() {
+        return prezzoTotale;
+    }
+
+    public String getPanino() {
+        return tipoPane;
+    }
+
+
+    public void setIngredientePrivato(String ingrediente, double prezzo) {
+        this.ingredientePrivato = ingrediente;
+        this.prezzoTotale += prezzo;
+    }
+
+    public String getIngredientePrivato() {
+        return ingredientePrivato;
+    }
 }
