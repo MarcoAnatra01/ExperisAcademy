@@ -82,7 +82,7 @@ public class Stadio {
                             // affluenza minima
                             int affluenzaMinimaSabato = spettatoriSabato.get(0);
 
-                            for (int k = 1; i < spettatoriSabato.size(); k++) {
+                            for (int k = 1; k < spettatoriSabato.size(); k++) {
                                 if (spettatoriSabato.get(i) < affluenzaMinimaSabato) {
                                     affluenzaMinimaSabato = spettatoriSabato.get(i); 
                                 }

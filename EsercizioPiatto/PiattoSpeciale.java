@@ -18,6 +18,8 @@ public class PiattoSpeciale {
         this.prezzoTotale = PREZZO_BASE;
     }
 
+    public PiattoSpeciale(){}
+
     public double getPrezzoTotale() {
         return prezzoTotale;
     }
