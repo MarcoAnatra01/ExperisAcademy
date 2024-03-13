@@ -1,7 +1,11 @@
 
 
 public class ResocontoDigitale {
+    
+    public void stampaDati(){
 
+    }
+    
     public static void main(String[] args) {
         DispositivoElettronico dispositivo = new DispositivoElettronico();
         Smartphone cellulare = new Smartphone();
@@ -13,8 +17,5 @@ public class ResocontoDigitale {
 
         // tramite questi oggetti prendo i valori e li stampo
 
-        public void stampaDati(){
-            
-        }
     }
 }
