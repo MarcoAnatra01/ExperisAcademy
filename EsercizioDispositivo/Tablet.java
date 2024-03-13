@@ -7,15 +7,22 @@ public class Tablet extends DispositivoElettronico{
     private int punti;
     private int id;
 
-    public Tablet(){
-        this.punti = random.nextInt(100);
-        this.id = idIncrementale++;
-    }
 
     @Override
     public void avviaApplicazione(String nameAPP) {
         super.avviaApplicazione(nameAPP);
+
+        System.out.println("\nL'applicazione " + nameAPP + " si è avviata");
+
+        punti = random.nextInt(100);
+        id = idIncrementale++;
     }
 
+    public int getPunti() {
+        return punti;
+    }
 
+    public int getId() {
+        return id;
+    }
 }
