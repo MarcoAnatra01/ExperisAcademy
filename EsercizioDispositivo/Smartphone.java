@@ -1,21 +1,34 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Smartphone extends DispositivoElettronico{
 
     public Scanner scan = new Scanner(System.in);
 
-    @Override
-    public String avviaApplicazione(String nameAPP) {
-        return super.avviaApplicazione(nameAPP);
-    }
+    private String username;
+    private String password;
 
-    public void login(String username, String psw){
+    private ArrayList<String> usernames = new ArrayList<>();
+    private ArrayList<String> passwords = new ArrayList<>();
+
+    public void login(){
         System.out.println("\nLogin");
 
         System.out.println("\ninserisci lo username:");
-        scan.nextLine();
+        username = scan.nextLine();
 
         System.out.println("\ninserisci la password:");
-        scan.nextLine();
+        password = scan.nextLine();
+
+        // salvo i dati utente nell'arraylist
+        usernames.add(username);
+        passwords.add(password);
     }
+
+    @Override
+    public void avviaApplicazione(String nameAPP) {
+        super.avviaApplicazione(nameAPP);
+        login();
+    }
+
 }
