@@ -33,7 +33,8 @@ class Main {
       Animal myDog = new Dog();  
       myPig.animalSound();
       myDog.animalSound();
-   }  }
+   }  
+}
   
 
 public class Tigre {
