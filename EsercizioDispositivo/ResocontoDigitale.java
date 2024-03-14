@@ -2,20 +2,24 @@
 
 public class ResocontoDigitale {
     
-    public void stampaDati(){
+    private String nome;
+    private String password;
+    private int punti;
+    private int id;
 
+    public ResocontoDigitale(String nome, String password, int punti, int id) {
+        this.nome = nome;
+        this.password = password;
+        this.punti = punti;
+        this.id = id;
+    }
+
+
+    public void stampaDati(){
+        System.out.println("\nResoconto Digitale:");
+        System.out.println("Username: " + nome + " - id: " + id);
+        System.out.println("Score: " + punti);
     }
     
-    public static void main(String[] args) {
-        DispositivoElettronico dispositivo = new DispositivoElettronico();
-        Smartphone cellulare = new Smartphone();
-        Tablet tablet = new Tablet();
-
-        dispositivo.avviaApplicazione("Facebook");
-        cellulare.avviaApplicazione("app2");
-        tablet.avviaApplicazione("app3");
-
-        // tramite questi oggetti prendo i valori e li stampo
-
-    }
+    
 }

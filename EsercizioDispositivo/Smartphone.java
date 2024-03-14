@@ -23,6 +23,8 @@ public class Smartphone extends DispositivoElettronico{
         // salvo i dati utente nell'arraylist
         usernames.add(username);
         passwords.add(password);
+
+        System.out.println("\nAccesso effettuato, benvenuto " + username);
     }
 
     @Override
@@ -31,4 +33,11 @@ public class Smartphone extends DispositivoElettronico{
         login();
     }
 
+    public String getUsername(){
+        return username;
+    }
+
+    public String getPassword(){
+        return password;
+    }
 }
