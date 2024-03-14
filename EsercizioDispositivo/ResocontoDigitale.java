@@ -17,8 +17,10 @@ public class ResocontoDigitale {
 
     public void stampaDati(){
         System.out.println("\nResoconto Digitale:");
-        System.out.println("Username: " + nome + " - id: " + id);
+        System.out.println("Username: " + nome);
+        System.out.println("id: " + id);
         System.out.println("Score: " + punti);
+        System.out.println("\n");
     }
     
     
