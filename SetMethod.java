@@ -1,22 +1,26 @@
-public class Main {
+public class SetMethod {
     private String nome;
     private int eta; 
 
     // esempio con Costruttore()
 
-    public Main(String nome, int eta) {
+    public SetMethod(String nome, int eta) {
       this.nome = nome;
       this.eta = eta;  
     }
 
-    public Main(){}
+    public SetMethod(){
+      // costruttore vuoto
+    }
 
+    // setter
     public void setName(String name){
       nome = name;
     }
   
     public static void main(String[] args) {
-      Main persona = new Main();
+      
+      SetMethod persona = new SetMethod();
       persona.setName("pippo");
    }
 }

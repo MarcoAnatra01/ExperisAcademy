@@ -5,6 +5,10 @@ public class Prova {
         
         Scanner scan = new Scanner(System.in);
 
+
+        // esercizio calcolo bonus verifica 
+
+        /*
         System.out.println("inserisci l'ammontare vendite annuali:");
         int vendite = scan.nextInt();
 
@@ -31,6 +35,7 @@ public class Prova {
         }
 
         System.out.println("bonus = " + bonus);
+        */
         
 
 

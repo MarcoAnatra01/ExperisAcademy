@@ -1,11 +1,24 @@
 public class ProvaCast {
     public static void main(String[] args) {
+
+        // tipi casting:
+        // casting implicito
+        // casting esplicito
+
         double myDouble = 9.78d;    
-        int myInt = (int) myDouble;    // casting manuale: double to int
+
+        // casting esplicito 
+        // casting manuale: double to int
+        int myInt = (int) myDouble;    
     
         System.out.println(myDouble);  // Outputs 9.78
         System.out.println(myInt);     // Outputs 9
         
-        System.out.println(Math.ceil(myDouble));
+
+        // forme del casting:
+        // casting ascendente
+        // casting scalare
+
+        //System.out.println(Math.ceil(myDouble));
     }
 }
