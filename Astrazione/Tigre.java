@@ -1,6 +1,8 @@
 package Astrazione;
 
 abstract class Animal {
+
+// le classi astratte non contengono costruttori poichè non possono essere usate per creare oggetti
     
     // i metodi astratti non hanno corpo
     public abstract void animalSound();  
@@ -24,10 +26,11 @@ class Dog extends Animal {
 
 class Main {
     public static void main(String[] args) {
-      //Animal myAnimal = new Animal();   non si possono istanziare classi astratte 
+      // Animal myAnimal = new Animal();    
+      // errore, non si possono istanziare classi astratte
+
       Animal myPig = new Pig();  
       Animal myDog = new Dog();  
-     // myAnimal.animalSound();
       myPig.animalSound();
       myDog.animalSound();
    }  }

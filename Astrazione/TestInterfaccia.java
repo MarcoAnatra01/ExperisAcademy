@@ -1,11 +1,13 @@
 package Astrazione;
 
 interface Animal {
-    // i metodi delle interfacce non hanno corpo (come i metodi astratti)
+    // l'interfaccia non contiene costruttori poichè non può essere usata per creare oggetti
+    // i metodi delle interfacce non hanno corpo (il corpo è fornito dalla classe che implementa)
+    // i metodi delle interfacce sono public e abstract per impostazione predefinita
+    // gli attributi delle interfacce invece sono public, static e final per impostazione predefinita
     public void animalSound(); 
     public void sleep(); 
 }
-  
 
 // una classe può implementare infinite interfacce
 // la classe che implementa deve sovrascrivere tutti i metodi dell'interfaccia
