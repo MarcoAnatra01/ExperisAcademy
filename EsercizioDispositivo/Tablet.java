@@ -10,7 +10,6 @@ public class Tablet extends DispositivoElettronico{
 
     @Override
     public void avviaApplicazione(String nameAPP) {
-        super.avviaApplicazione(nameAPP);
 
         System.out.println("\nL'applicazione " + nameAPP + " si è avviata");
 

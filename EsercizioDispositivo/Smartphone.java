@@ -29,7 +29,7 @@ public class Smartphone extends DispositivoElettronico{
 
     @Override
     public void avviaApplicazione(String nameAPP) {
-        super.avviaApplicazione(nameAPP);
+        System.out.println("\nCaricamento, attendere prego");
         login();
     }
 
