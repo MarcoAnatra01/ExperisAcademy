@@ -46,9 +46,9 @@ public class Libro {
         if(disponibili > 0){
            disponibili--;
            prestito++; 
-           System.out.println("Hai scelto il libro: " + titolo);
+           System.out.println("\nHai scelto il libro: " + titolo);
         }else{
-            System.out.println("Al momento non abbiamo copie disponibili per il libro: " + titolo);
+            System.out.println("\nNon abbiamo copie disponibili per il libro: " + titolo);
         }
     }
 
@@ -56,9 +56,9 @@ public class Libro {
         if (prestito > 0) {
             disponibili++;
             prestito--;
-            System.out.println("Hai restituito il libro: " + titolo);
+            System.out.println("\nHai restituito il libro: " + titolo);
         }else{
-            System.out.println("non ci sono copie in prestito per il libro indicato");
+            System.out.println("\nnon ci sono copie in prestito per il libro indicato");
         }
     }
 

@@ -30,8 +30,62 @@ public class Biblioteca{
         popolaBiblioteca(); 
     }
 
-    public void operazioni(){
+    public int operazioni(){
         System.out.println("Menu");
+        System.out.println("Seleziona l'operazione:");
+        System.out.println("\n1 - prendi in prestito");
+        System.out.println("\n2 - restituisci libro");
+        System.out.println("\n3 - aggiungi libro");
+        System.out.println("\n4 - rimuovi libro");
+        System.out.println("\n5 - esci");
+
+        int sceltaOperazione = scannerInt.nextInt();
+
+        switch (sceltaOperazione) {
+            case 1: 
+                // viene preso in prestito un libro
+                System.out.println("\nQuale libro vuoi prendere in prestito? (metti il titolo)");
+
+                String titolo = scanner.nextLine();
+                Libro libroTrovato = findByName(titolo);
+
+                if (libroTrovato != null) {
+                    libroTrovato.prestaLibro();
+                }else{
+                    System.out.println("\nil libro non è presente");
+                }
+                break;
+        
+            case 2:
+                // viene restituito un libro
+                System.out.println("\nQuale libro vuoi restituire? (metti il titolo)");
+
+                String nome = scanner.nextLine();
+                Libro bookFound = findByName(nome);
+
+                if (bookFound != null) {
+                    bookFound.restituisciLibro();;
+                }else{
+                    System.out.println("\nil libro non è presente");
+                }
+                break;
+
+            case 3:
+                // aggiunta libro
+                aggiungiLibro();
+                break;
+
+            case 4:
+                // rimozione libro
+                rimuoviLibro();
+                break;
+            
+            case 5:
+                System.out.println("\nCiao e arrivederci !");
+                sceltaOperazione = 5;
+                break;
+        }
+        return sceltaOperazione;
     }
 
     public void stampaLibri(){

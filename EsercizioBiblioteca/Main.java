@@ -9,9 +9,16 @@ public class Main {
         // popolato l'ArrayList libri
         Biblioteca biblioteca = new Biblioteca();
 
-        biblioteca.aggiungiLibro();
+        // biblioteca.stampaLibri();
+        // biblioteca.aggiungiLibro();
+        // biblioteca.stampaLibri();
+        // biblioteca.rimuoviLibro();
+
+        int scelta = 0;
         biblioteca.stampaLibri();
-        biblioteca.rimuoviLibro();
-        biblioteca.stampaLibri();
+
+        do {
+            scelta = biblioteca.operazioni();
+        } while (scelta >= 1 && scelta <= 4);
     }
 }
