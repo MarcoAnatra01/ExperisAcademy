@@ -30,6 +30,10 @@ public class Biblioteca{
         popolaBiblioteca(); 
     }
 
+    public void operazioni(){
+        System.out.println("Menu");
+    }
+
     public void stampaLibri(){
         if (libri.isEmpty()) {
             System.out.println("Non ci sono libri disponibili");
