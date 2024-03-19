@@ -42,21 +42,21 @@ public class Libro {
     }
 
 
-    public void prestaLibro(Libro libro){
-        if(libro.disponibili > 0){
-           libro.disponibili--;
-           libro.prestito++; 
-           System.out.println("Hai scelto il libro: " + libro.titolo);
+    public void prestaLibro(){
+        if(disponibili > 0){
+           disponibili--;
+           prestito++; 
+           System.out.println("Hai scelto il libro: " + titolo);
         }else{
-            System.out.println("Al momento non abbiamo copie disponibili per il libro: " + libro.titolo);
+            System.out.println("Al momento non abbiamo copie disponibili per il libro: " + titolo);
         }
     }
 
-    public void restituisciLibro(Libro libro){
-        if (libro.prestito > 0) {
-            libro.disponibili++;
-            libro.prestito--;
-            System.out.println("Hai restituito il libro: " + libro.titolo);
+    public void restituisciLibro(){
+        if (prestito > 0) {
+            disponibili++;
+            prestito--;
+            System.out.println("Hai restituito il libro: " + titolo);
         }else{
             System.out.println("non ci sono copie in prestito per il libro indicato");
         }

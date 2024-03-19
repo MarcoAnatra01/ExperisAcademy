@@ -7,7 +7,28 @@ public class Biblioteca{
     public Scanner scannerInt = new Scanner(System.in);
 
     // contiene tutti gli oggetti Libro disponibili in biblioteca 
-    ArrayList<Libro> libri = new ArrayList<>();
+    private ArrayList<Libro> libri;
+
+    public void popolaBiblioteca(){
+        libri.add(new Libro("Il Signore degli Anelli", "J.R.R. Tolkien", 150));
+        libri.add(new Libro("Harry Potter e la Pietra Filosofale", "J.K. Rowling", 200));
+        libri.add(new Libro("Il Codice Da Vinci", "Dan Brown", 180));
+        libri.add(new Libro("Orgoglio e Pregiudizio", "Jane Austen", 140));
+        libri.add(new Libro("Il Grande Gatsby", "F. Scott Fitzgerald", 120));
+        libri.add(new Libro("1984", "George Orwell", 170));
+        libri.add(new Libro("Moby Dick", "Herman Melville", 90));
+        libri.add(new Libro("L'insostenibile leggerezza dell'essere", "Milan Kundera", 110));
+        libri.add(new Libro("Il Piccolo Principe", "Antoine de Saint-Exupéry", 250));
+        libri.add(new Libro("Frankenstein", "Mary Shelley", 80));
+    }
+
+    public Biblioteca(){
+        // inizializzo l'ArrayList
+        this.libri = new ArrayList<>();
+
+        // aggiungo i libri alla lista
+        popolaBiblioteca(); 
+    }
 
     public void stampaLibri(){
         if (libri.isEmpty()) {
@@ -16,6 +37,7 @@ public class Biblioteca{
             for(int i = 0; i < libri.size(); i++){
                 System.out.println("\n" + libri.get(i).toString());
             }
+            System.out.println("\n");
         }
     }
 
@@ -58,8 +80,9 @@ public class Biblioteca{
         // cerco il libro nella lista 
         if (libroTrovato != null) {
             libri.remove(libroTrovato);
+            System.out.println("\nHai rimosso il libro: " + libroTrovato.getTitolo());
         }else{
-            System.out.println("il libro da rimuovere non è presente in biblioteca");
+            System.out.println("\nil libro da rimuovere non è presente");
         }
     }
 }
