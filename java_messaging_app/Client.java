@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.Base64;
 import java.util.Scanner;
 
 // Definizione della classe Client.
@@ -54,7 +55,12 @@ public class Client {
             // Ciclo principale per l'invio di messaggi al server.
             while (true) {
                 String message = userInput.nextLine(); // Legge un messaggio da console.
-                out.println(username + ": " + message); // Invia il messaggio al server, preceduto dall'username.
+                String completeMessage = username + ": " + message; 
+                
+                // codifica del messaggio in formato base64
+                String base64Message = Base64.getEncoder().encodeToString(completeMessage.getBytes());
+
+                out.println(base64Message); // Invia il messaggio al server, preceduto dall'username.
                 if (message.equalsIgnoreCase("exit")) { // Se il messaggio è "exit", interrompe il ciclo.
                     break;
                 }

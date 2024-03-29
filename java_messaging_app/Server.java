@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -56,17 +58,10 @@ public class Server {
         public void createChatFile(){
             File chatFile = new File("chat.txt");
 
-            if (chatFile.exists()) {
-                System.out.println("il file chat.txt esiste");
-            }else{
+            if (!chatFile.exists()) {  // se il file chat.txt non esiste, allore viene creato
+                
                 try {
-                    boolean createFile = chatFile.createNewFile();
-                    
-                    if(createFile == true){
-                        System.out.println("file chat.txt creato");
-                    }else{
-                        System.out.println("creazione file fallita");
-                    }
+                    chatFile.createNewFile();
                 } catch (IOException e) {
                     System.out.println("errore nella creazione del file");
                 }
@@ -93,6 +88,7 @@ public class Server {
                 // invio il messaggio di connessione stabilita a tutti i client
                 broadcast("L'utente " + username + " si è appena connesso dall'IP " + clientIpAddress);
 
+                createChatFile();
                 chatWriter = new PrintWriter(new FileWriter("chat.txt", true));
 
                 while (true) { // Ciclo infinito per leggere i messaggi in entrata.
@@ -100,8 +96,13 @@ public class Server {
                     if (message.equalsIgnoreCase("exit")) { // Se il messaggio è "exit", termina il ciclo.
                         break;
                     }
-                    broadcast(message); // Invia il messaggio ricevuto a tutti i client connessi.
-                    chatWriter.println(message); // scrivo il messaggio nel file chat.txt
+
+                    // decodifica il messaggio del client codificato in base64
+                    byte[] decodedBytes = Base64.getDecoder().decode(message);
+                    String utf8Message = new String(decodedBytes, StandardCharsets.UTF_8);
+
+                    broadcast(utf8Message); // Invia il messaggio ricevuto a tutti i client connessi.
+                    chatWriter.println(utf8Message); // scrivo il messaggio nel file chat.txt
                 }
             } catch (IOException e) { // Cattura eccezioni di I/O.
                 e.printStackTrace(); // Stampa lo stack trace delle eccezioni catturate.
