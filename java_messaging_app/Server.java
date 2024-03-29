@@ -1,5 +1,7 @@
 
 // Importa le classi necessarie per gestire input/output e networking.
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
@@ -43,9 +45,32 @@ public class Server {
         private Socket clientSocket; // Socket del client.
         private PrintWriter out; // PrintWriter per inviare dati al client.
 
+        private PrintWriter chatWriter;  
+
         // Costruttore che accetta il socket del client.
         public ClientHandler(Socket socket) {
             this.clientSocket = socket;
+        }
+
+
+        public void createChatFile(){
+            File chatFile = new File("chat.txt");
+
+            if (chatFile.exists()) {
+                System.out.println("il file chat.txt esiste");
+            }else{
+                try {
+                    boolean createFile = chatFile.createNewFile();
+                    
+                    if(createFile == true){
+                        System.out.println("file chat.txt creato");
+                    }else{
+                        System.out.println("creazione file fallita");
+                    }
+                } catch (IOException e) {
+                    System.out.println("errore nella creazione del file");
+                }
+            }
         }
 
         // Metodo run eseguito quando il thread è avviato.
@@ -68,12 +93,15 @@ public class Server {
                 // invio il messaggio di connessione stabilita a tutti i client
                 broadcast("L'utente " + username + " si è appena connesso dall'IP " + clientIpAddress);
 
+                chatWriter = new PrintWriter(new FileWriter("chat.txt", true));
+
                 while (true) { // Ciclo infinito per leggere i messaggi in entrata.
                     String message = in.nextLine(); // Legge la prossima riga di testo inviata dal client.
                     if (message.equalsIgnoreCase("exit")) { // Se il messaggio è "exit", termina il ciclo.
                         break;
                     }
                     broadcast(message); // Invia il messaggio ricevuto a tutti i client connessi.
+                    chatWriter.println(message); // scrivo il messaggio nel file chat.txt
                 }
             } catch (IOException e) { // Cattura eccezioni di I/O.
                 e.printStackTrace(); // Stampa lo stack trace delle eccezioni catturate.
@@ -85,6 +113,11 @@ public class Server {
                     clientSocket.close(); // Prova a chiudere il socket del client.
                 } catch (IOException e) { // Cattura eccezioni di I/O.
                     e.printStackTrace(); // Stampa lo stack trace dell'eccezione.
+                }
+
+                // Chiudi il PrintWriter quando il client si disconnette
+                if (chatWriter != null) {
+                    chatWriter.close();
                 }
             }
         }
