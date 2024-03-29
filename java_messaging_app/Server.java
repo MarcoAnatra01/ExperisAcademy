@@ -19,6 +19,8 @@ import java.util.Set;
 public class Server {
     // Porta su cui il server ascolterà le connessioni in entrata.
     private static final int PORT = 8000;
+
+    private static int usersPresent;
     
     // Insieme dei PrintWriter, uno per ogni client connesso, per inviare messaggi.
     private static Set<PrintWriter> clientWriters = new HashSet<>();
