@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -58,7 +59,7 @@ public class Client {
                 String completeMessage = username + ": " + message; 
                 
                 // codifica del messaggio in formato base64
-                String base64Message = Base64.getEncoder().encodeToString(completeMessage.getBytes());
+                String base64Message = Base64.getEncoder().encodeToString(completeMessage.getBytes(StandardCharsets.UTF_8));
 
                 out.println(base64Message); // Invia il messaggio al server, preceduto dall'username.
                 if (message.equalsIgnoreCase("exit")) { // Se il messaggio è "exit", interrompe il ciclo.
