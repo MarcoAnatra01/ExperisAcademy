@@ -32,7 +32,7 @@ public class CrittografiaCesare {
         for (char carattere : testo.toCharArray()) {
             int posizioneOriginale = DIZIONARIO.indexOf(carattere);
             
-            if (posizioneOriginale != -1) {  
+            if (posizioneOriginale != -1) {  // verifico se il carattere è presente nell'array dizionario
                 int nuovaPosizione = (posizioneOriginale + shift) % DIZIONARIO.length();
 
                 if (nuovaPosizione < 0) {
