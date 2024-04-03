@@ -36,12 +36,14 @@ public class CifrarioDiCesare {
         StringBuilder risultato = new StringBuilder();
 
         for (char carattere : testo.toCharArray()) {
-            if(DIZIONARIO.indexOf(carattere) != 1) {
+            if(DIZIONARIO.indexOf(carattere) != -1) {  // verifico se il carattere è presente nell'array dizionario
                 int posizioneOriginale = DIZIONARIO.indexOf(carattere);
-                int nuovaPosizione = (DIZIONARIO.length() + posizioneOriginale + shift ) % DIZIONARIO.length(); //Effetto supermario
+                int nuovaPosizione = (DIZIONARIO.length() + posizioneOriginale + shift ) % DIZIONARIO.length(); 
                 //int nuovaPosizione = posizioneOriginale + shift;
                 risultato.append(DIZIONARIO.charAt(nuovaPosizione));
             } else {
+                // Mantieni i caratteri non alfabetici invariati (spazi, numeri, punteggiatura ecc)
+                // i numeri non vengono shiftati perchè non presenti nell'array dizionario
                 risultato.append(carattere);
             }
         }
