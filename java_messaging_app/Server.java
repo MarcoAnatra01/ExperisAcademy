@@ -84,13 +84,14 @@ public class Server {
                 String username = in.nextLine();
                 clientUsernames.put(out, username);
                 
+                // ottengo l'ip del client che si è connesso e lo salvo
                 InetSocketAddress socketAddress = (InetSocketAddress) clientSocket.getRemoteSocketAddress();
                 String clientIpAddress = socketAddress.getAddress().getHostAddress();
 
-                // invio il messaggio di connessione stabilita a tutti i client
+                // invio il messaggio di connessione stabilita a tutti i client tramite broadcast()
                 broadcast("L'utente " + username + " si è appena connesso dall'IP " + clientIpAddress);
 
-                createChatFile();
+                createChatFile();  // creo il file chat.txt se non è presente
                 chatWriter = new PrintWriter(new FileWriter("chat.txt", true));
 
                 while (true) { // Ciclo infinito per leggere i messaggi in entrata.
@@ -98,6 +99,8 @@ public class Server {
                     if (message.equalsIgnoreCase("exit")) { // Se il messaggio è "exit", termina il ciclo.
                         break;
                     }
+
+                    // LA PARTE DI CODIFICA UTF-8 NON FUNZIONA
 
                     // decodifica il messaggio del client codificato in base64
                     byte[] decodedBytes = Base64.getDecoder().decode(message);

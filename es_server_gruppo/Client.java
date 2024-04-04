@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
-import es_server_gruppo.EnigmaSimulator;
 
 // Definizione della classe Client.
 public class Client {
